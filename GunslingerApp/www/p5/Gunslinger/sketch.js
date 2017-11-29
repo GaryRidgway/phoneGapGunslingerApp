@@ -14,7 +14,7 @@ function setup() {
   dpos();
   gunBarrel = new barrel(lpos, tpos, 6, cScale, bgColor);
   gCount = new gritCounter(windowWidth-30*loadScale, windowHeight-30*loadScale, 4);
-  iMen = new inputGun(loadScale);
+  iMen = new inputGun();
   MNU = new menu(loadScale, bgColor, gunBarrel, iMen);
 }
 function draw() {
@@ -26,7 +26,7 @@ function draw() {
   } else {
 	MNU.showFullMenu();
 	//ENABLE LATER
-	//iMen.show();
+	iMen.show();
   }
 }
 
@@ -39,7 +39,9 @@ function windowResized() {
 }
 
 function mousePressed() {
+  // IT'S RIGHT FUCKING HERE
   gCount.checkClicked();
+  //
   gunBarrel.checkClicked();
   return false;
 }

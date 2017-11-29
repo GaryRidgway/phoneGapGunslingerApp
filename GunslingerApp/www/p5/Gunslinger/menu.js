@@ -77,12 +77,6 @@ function menu(scale, bgColor, gunBarrel, iMen) {
 		line(windowWidth-10*scale, windowHeight/10/2, windowWidth-35*scale, windowHeight/10/2);
 		line(windowWidth-10*scale, windowHeight/10/7*6-windowHeight/10/7/2, windowWidth-35*scale, windowHeight/10/7*6-windowHeight/10/7/2);
 		pop();
-
-
-
-
-
-
 		pop();
 	}
 	
