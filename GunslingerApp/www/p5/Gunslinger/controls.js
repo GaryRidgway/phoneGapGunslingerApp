@@ -32,4 +32,6 @@ $( document ).ready(function() {
     addgun(name, chambers);
     $('#input-box').addClass('offscreen');
   });
+
+  loadSaveState();
 });

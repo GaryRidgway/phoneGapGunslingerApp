@@ -1,9 +1,11 @@
-function barrel(x ,y, chambers, scale, bgColor, canvas, gunIndex) {
+function barrel(x ,y, chambers, scale, bgColor, canvas, gunIndex, name) {
   this.scale = scale;
   this.pos = [x, y];
   this.chambers = chambers;
   this.bgColor = bgColor;
   this.guncanvas = canvas;
+  this.gunIndex = gunIndex;
+  this.name = name;
   this.cChamber = 0;
   this.bullets = [];
   while(this.bullets.length < this.chambers) {

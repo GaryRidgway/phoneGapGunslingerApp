@@ -5,17 +5,12 @@ var guncounter = 0;
 function setup() {
   createCanvas(windowWidth, windowWidth-140);
   background('#181818');
-
-  // addgun('Alpha', 5);
-  // addgun('Beta', 6);
-  // addgun('Gamma', 7);
-  // addgun('Tau', 8);
 }
 
 function draw() {
   background('#181818');
   for( var i = 0 ; i < guncounter ; i++) {
-    if(guns[i].isOn) {
+    if(guns[i] != undefined && guns[i].isOn) {
       image(guncanvases[i], 0, 0);
       guns[i].show();
     }
@@ -26,33 +21,35 @@ function clog(x) {
   console.log(x);
 }
 
-function addgun(gunName, chambers) {
-  guncanvases[guncounter] = createGraphics(windowWidth, windowWidth-140);
-  guns[guncounter]        = new barrel(windowWidth/2, (windowWidth-140)/2, chambers, 1.125, '#181818', guncanvases[guncounter], guncounter);
+function addgun(gunName, chambers, gunCounter = guncounter,) {
+  guncanvases[gunCounter] = createGraphics(windowWidth, windowWidth-140);
+  guns[gunCounter]        = new barrel(windowWidth/2, (windowWidth-140)/2, chambers, 1.125, '#181818', guncanvases[gunCounter], gunCounter, gunName);
 
   if($('#bottom-buttons').html().length) {
-    $('.fire').attr('id', 'fire-gun-' + guncounter);
-    $('.reload').attr('id', 'reload-gun-' + guncounter);
+    $('.fire').attr('id', 'fire-gun-' + gunCounter);
+    $('.reload').attr('id', 'reload-gun-' + gunCounter);
   }
   else {
     $('#bottom-buttons').append('\
-      <div id="fire-gun-' + guncounter + '" class="fire bottom-button">Fire</div>\
-      <div id="reload-gun-' + guncounter + '" class="reload bottom-button">Reload</div>\
+      <div id="fire-gun-' + gunCounter + '" class="fire bottom-button">Fire</div>\
+      <div id="reload-gun-' + gunCounter + '" class="reload bottom-button">Reload</div>\
     ');
-    $('#fire-gun-' + guncounter).click(function(guncounter) {
+    $('#fire-gun-' + gunCounter).click(function(guncounter) {
       guns[$(this).attr('id').split('-')[2]].shoot();
     });
-    $('#reload-gun-' + guncounter).click(function() {
+    $('#reload-gun-' + gunCounter).click(function() {
       guns[$(this).attr('id').split('-')[2]].reload();
     });
   }
 
   $('.tab').removeClass('tab-active');
-  let activeTab = $('#tab-' + guncounter);
+  let activeTab = $('#tab-' + gunCounter);
   activeTab.addClass('tab-active');
   activeTab.text(gunName);
 
-  guncounter++;
+  if(gunCounter == guncounter) {
+    guncounter++;
+  }
 }
 
 
