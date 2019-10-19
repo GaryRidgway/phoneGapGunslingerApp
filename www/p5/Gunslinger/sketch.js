@@ -50,6 +50,8 @@ function addgun(gunName, chambers, gunCounter = guncounter,) {
   if(gunCounter == guncounter) {
     guncounter++;
   }
+
+  saveState();
 }
 
 

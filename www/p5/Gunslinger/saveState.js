@@ -1,9 +1,8 @@
 function saveState() {
+  clog('call');
   let savedGuns        = guns;
   let savedGuncounter  = guncounter;
   let newSavedGuns     = [];
-  clog(savedGuns);
-
 
   for (let i = 0; i < savedGuns.length; i++) {
     let gundata = [];
