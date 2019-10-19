@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'Lobster';
+  src: url('../../assets/Lobster/lobster-regular-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../../assets/Lobster/lobster-regular-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/Lobster/lobster-regular-webfont.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/Lobster/lobster-regular-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/Lobster/lobster-regular-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+#defaultCanvas0 {
+  margin-top: 15%;
+  position: fixed;
+  z-index: 0;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-image: radial-gradient(#505050, #131313);
+}
+
+p {
+	margin: 0;
+}
+
+input {
+	z-index: 1;
+	border: 2px solid #a0a0a0;
+	border-radius: 5px;
+	color: #a0a0a0;
+	font-size: 2rem;
+
+}
+
+.row-container {
+  display:flex;
+}
+
+.card {
+  margin: 20px;
+  flex: 25%;
+  padding: 0px;
+  border: 1px solid #c3c3c3;
+  background-color: #fafafa;
+  border-radius: 5px;
+}
+
+.brackets {
+}
+
+.title{
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #c3c3c3;
+}
+
+.card-body {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+	position: absolute;
+	background-color: transparent;
+	color: transparent;
+	border: none;
+	border-radius: 5px;
+	padding: 0;
+}
+
+button:active {
+	background-color: rgba(136,136,136, 0.2);
+}
+
+.add {
+	border-radius: 50%;
+}
+
+.shoot, .reload {
+	border: 2px solid #f1f1f1;
+	color: #f1f1f1;
+
+}
+
+.gunSubmit {
+	border: 2px solid #a0a0a0;
+	border-radius: 5px;
+	color: #a0a0a0;
+	font-size: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
