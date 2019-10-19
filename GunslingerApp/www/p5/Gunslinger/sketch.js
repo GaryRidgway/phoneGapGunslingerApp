@@ -3,13 +3,13 @@ var guns        = [];
 var guncounter = 0;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowWidth-140);
   background('#181818');
 
-  addgun(5);
-  addgun(4);
-  addgun(2);
-  addgun(3);
+  // addgun('Alpha', 5);
+  // addgun('Beta', 6);
+  // addgun('Gamma', 7);
+  // addgun('Tau', 8);
 }
 
 function draw() {
@@ -26,16 +26,18 @@ function clog(x) {
   console.log(x);
 }
 
-function addgun(chambers) {
-  guncanvases[guncounter] = createGraphics(windowWidth, windowHeight);
-  guns[guncounter]        = new barrel(windowWidth/2, windowHeight/2, chambers, 1.125, '#181818', guncanvases[guncounter], guncounter);
+function addgun(gunName, chambers) {
+  guncanvases[guncounter] = createGraphics(windowWidth, windowWidth-140);
+  guns[guncounter]        = new barrel(windowWidth/2, (windowWidth-140)/2, chambers, 1.125, '#181818', guncanvases[guncounter], guncounter);
 
-  if($('#bottom-buttons').length) {
+  if($('#bottom-buttons').html().length) {
+    $('.fire').attr('id', 'fire-gun-' + guncounter);
+    $('.reload').attr('id', 'reload-gun-' + guncounter);
   }
   else {
     $('#bottom-buttons').append('\
-      <div id="fire-gun-' + guncounter + '" class="fire bottom-button">fire</div>\
-      <div id="reload-gun-' + guncounter + '" class="reload bottom-button">reload</div>\
+      <div id="fire-gun-' + guncounter + '" class="fire bottom-button">Fire</div>\
+      <div id="reload-gun-' + guncounter + '" class="reload bottom-button">Reload</div>\
     ');
     $('#fire-gun-' + guncounter).click(function(guncounter) {
       guns[$(this).attr('id').split('-')[2]].shoot();
@@ -44,6 +46,12 @@ function addgun(chambers) {
       guns[$(this).attr('id').split('-')[2]].reload();
     });
   }
+
+  $('.tab').removeClass('tab-active');
+  let activeTab = $('#tab-' + guncounter);
+  activeTab.addClass('tab-active');
+  activeTab.text(gunName);
+
   guncounter++;
 }
 

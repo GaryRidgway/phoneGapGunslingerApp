@@ -7,13 +7,29 @@ $( document ).ready(function() {
         guns[i].on(false);
       }
     }
+    $('.tab').removeClass('tab-active');
+    $(this).addClass('tab-active');
 
     if(typeof guns[tabindex] !== 'undefined') {
-      clog('old gun');
       guns[tabindex].on(true);
+      $('.fire').attr('id', 'fire-gun-' + tabindex);
+      $('.reload').attr('id', 'reload-gun-' + tabindex);
     }
     else {
-      clog('new gun');
+      $('#input-box').removeClass('offscreen');
     }
+  });
+
+  $('#input-box .close-button').click(function() {
+    $('#input-box').addClass('offscreen');
+  });
+
+  $('#input-box .submit-gun').click(function() {
+    let name     = $('#name-input').val();
+    let chambers = $('#chamber-input').val();
+    $('#name-input').val('');
+    $('#chamber-input').val('1');
+    addgun(name, chambers);
+    $('#input-box').addClass('offscreen');
   });
 });

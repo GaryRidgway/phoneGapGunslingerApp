@@ -8,9 +8,6 @@
     <script src="p5/addons/jquery-3.2.1.min.js"></script>
     <script src="p5/Gunslinger/sketch.js"></script>
     <script src="p5/Gunslinger/barrel.js"></script>
-<!--     <script src="p5/Gunslinger/gritCounter.js"></script>
-	<script src="p5/Gunslinger/menu.js"></script>
-	<script src="p5/Gunslinger/inputGun.js"></script> -->
     <script src="p5/Gunslinger/controls.js"></script>
     <style> body {padding: 0; margin: 0;} </style>
     <link rel="stylesheet" type="text/css" href="p5/Gunslinger/index.css">
@@ -18,6 +15,27 @@
   </head>
   <body id = "body">
     <div id="bottom-buttons"></div>
+    <div id="input-box" class="offscreen">
+      <div class='input-area'>
+        <img src="assets/times-solid.svg" alt="times" class="close-button">
+        <p>Gun Name</p>
+        <input id="name-input" class="input" type="text" name="name">
+      </div>
+      <div class='input-area'>
+        <p>Chambers</p>
+        <select id="chamber-input" class="input" name="chambers">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+        <p class="submit-gun">Submit</p>
+      </div>
+    </div>
     <div id="left-tabs">
       <div id="tab-0" class="tab">+</div>
       <div id="tab-1" class="tab">+</div>
